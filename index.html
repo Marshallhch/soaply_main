@@ -10,8 +10,12 @@
     <link rel="shorcut icon" href="/images/favicon.png" />
     <link rel="apple-touch-icon" href="/images/favicon.png" />
 
+    <!-- Rimix Icon Link -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
     <!-- Main Style Sheet Link -->
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/media.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -28,21 +32,60 @@
           <div class="logo">
             <a href="#"><img src="/images/logo.svg" alt="" /></a>
           </div>
-          <ul class="sns">
-            <li>
-              <a href="#"><img src="/images/sns-icon-1.svg" alt="" /></a>
+          <ul class="info">
+            <li class="sns">
+              <ul>
+                <li><a href="#"><img src="/images/sns-icon-1.svg" alt="" /></a></li>
+                <li><a href="#"><img src="/images/sns-icon-2.svg" alt="" /></a></li>
+                <li><a href="#"><img src="/images/sns-icon-3.svg" alt="" /></a></li>
+              </ul>
             </li>
-            <li>
-              <a href="#"><img src="/images/sns-icon-2.svg" alt="" /></a>
-            </li>
-            <li>
-              <a href="#"><img src="/images/sns-icon-3.svg" alt="" /></a>
+            <li class="cart"><a href="#"><i class="ri-shopping-cart-line"></i><em>(0)</em></a></li>
+            <li class="user"><button><i class="ri-user-3-fill"></i></button>
             </li>
           </ul>
+          <div class="mobile-btn-wrapper">
+            <div class="mobile-btn not-active">
+              <span class="bar_line"></span>
+              <span class="bar_line"></span>
+              <span class="bar_line"></span>
+            </div>
+          </div>
         </div>
+
+        <!-- Mobile Menu Elements -->
+        <div class="mobile-menus"></div>
       </header>
       <section id="main-section" class="section landing-section">
         <img src="/images/landing-image.jpeg" alt="" />
+        <div class="landing-text-box container">
+          <h1>소플리 컬렉션<br>자연을 담은 수제 천연 비누</h1>
+          <p>츠긴 로으즐멘 벘어 즘드끼녁지만, 끠산나가 엤기한테 스나팡일 겐다메다 칸깅수완의 들븡만자는 억싱함을. 러아니롤</p>
+          <a href="#" class="common-btn">Shop Now</a>
+        </div>
+        <div class="overlay"></div>
+      </section>
+
+      <!-- Meet Section -->
+      <section class="meet-section section">
+        <div class="container">
+          <div class="meet-wrapper">
+            <div class="meet-text-box">
+              <h4>MEET THE SOAPLY MASTER</h4>
+              <p>츠긴 로으즐멘 벘어 즘드끼녁지만, 끠산나가 엤기한테 스나팡일 겐다메다 칸깅수완의 들븡만자는 억싱함을. 러아니롤 오리올일 오든다 저동믜쭈에서 벤욯닜버난을 늠딤 요아스그셔띠는</p>
+              <span>윤동주, '별 헤는 밤' 중...</span>
+            </div>
+            <div class="meet-image-box">
+              <div class="meet-left-image">
+                <img src="/images/about-image-1.jpeg" alt="">
+                <img src="/images/about-image-3.jpeg" alt="">
+              </div>
+              <div class="meet-right-image">
+                <img src="/images/about-image-2.jpeg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
 
