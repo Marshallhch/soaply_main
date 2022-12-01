@@ -1,0 +1,55 @@
+<div class="products">
+                <div class="product-frame">
+                    <div class="product-item">
+                        <img src="/images/offers-image-1.jpeg" alt="">
+                        <div class="product-text">
+                            <h4>My Perfect Bath Set</h4>
+                            <strong>₩8.500</strong>
+                            <p>웄핬제탕 당게거선어야 포누보른을 겝길빠엔은 앚옹븐무치 느아아 하졈젬다. 제뵁을 캐비러리를 라뫕기던어</p>
+                            <a href="#" class="common-btn">자세히 보기</a>
+                        </div>
+                    </div>
+                    <!-- 상품 컨텐츠를 담는 박스 -->
+                </div>
+                <!-- 반복되는 상품 각각의 박스 -->
+                <div class="product-frame">
+                  <div class="product-item">
+                      <img src="/images/offers-image-2.jpeg" alt="">
+                      <div class="product-text">
+                          <h4>My Perfect Bath Set</h4>
+                          <strong>₩8.500</strong>
+                          <p>웄핬제탕 당게거선어야 포누보른을 겝길빠엔은 앚옹븐무치 느아아 하졈젬다. 제뵁을 캐비러리를 라뫕기던어</p>
+                          <a href="#" class="common-btn">자세히 보기</a>
+                      </div>
+                  </div>
+                  <!-- 상품 컨텐츠를 담는 박스 -->
+              </div>
+              <!-- 반복되는 상품 각각의 박스 -->
+              <div class="product-frame">
+                <div class="product-item">
+                    <img src="/images/offers-image-3.jpeg" alt="">
+                    <div class="product-text">
+                        <h4>My Perfect Bath Set</h4>
+                        <strong>₩8.500</strong>
+                        <p>웄핬제탕 당게거선어야 포누보른을 겝길빠엔은 앚옹븐무치 느아아 하졈젬다. 제뵁을 캐비러리를 라뫕기던어</p>
+                        <a href="#" class="common-btn">자세히 보기</a>
+                    </div>
+                </div>
+                <!-- 상품 컨텐츠를 담는 박스 -->
+            </div>
+            <!-- 반복되는 상품 각각의 박스 -->
+            <div class="product-frame">
+              <div class="product-item">
+                  <img src="/images/offers-image-1.jpeg" alt="">
+                  <div class="product-text">
+                      <h4>My Perfect Bath Set</h4>
+                      <strong>₩8.500</strong>
+                      <p>웄핬제탕 당게거선어야 포누보른을 겝길빠엔은 앚옹븐무치 느아아 하졈젬다. 제뵁을 캐비러리를 라뫕기던어</p>
+                      <a href="#" class="common-btn">자세히 보기</a>
+                  </div>
+              </div>
+              <!-- 상품 컨텐츠를 담는 박스 -->
+          </div>
+          <!-- 반복되는 상품 각각의 박스 -->
+            </div>
+            <!-- 상품 박스 전체를 감싸는 태그 -->
