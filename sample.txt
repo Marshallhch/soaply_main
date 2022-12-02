@@ -53,3 +53,14 @@
           <!-- 반복되는 상품 각각의 박스 -->
             </div>
             <!-- 상품 박스 전체를 감싸는 태그 -->
+
+<div class="grid-item"><img src="/images/gallery-image-1.jpeg" alt=""></div>
+              <div class="grid-item"><img src="/images/gallery-image-2.jpeg" alt=""></div>
+              <div class="grid-item"><img src="/images/gallery-image-3.jpeg" alt=""></div>
+              <div class="grid-item"><img src="/images/gallery-image-4.jpeg" alt=""></div>
+              <div class="grid-item"><img src="/images/gallery-image-5.jpeg" alt=""></div>
+              <div class="grid-item"><img src="/images/gallery-image-6.jpeg" alt=""></div>
+              <div class="grid-item"><img src="/images/gallery-image-7.jpeg" alt=""></div>
+              <div class="grid-item"><img src="/images/gallery-image-8.jpeg" alt=""></div>
+              <div class="grid-item"><img src="/images/gallery-image-9.jpeg" alt=""></div>
+            </div>
