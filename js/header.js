@@ -13,7 +13,7 @@ window.addEventListener("load", function () {
     const target = e.currentTarget;
     const menuHeight = mobileMenus.scrollHeight; // scrollHeight : 지정 대상의 높이값을 읽어준다.
     target.classList.toggle("active");
-    console.log(menuHeight);
+    // console.log(menuHeight);
 
     if (target.classList.contains("active")) {
       target.classList.remove("not-active");
