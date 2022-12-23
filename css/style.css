@@ -98,6 +98,6 @@
   .insta-section .insta-right-image .insta-grid-1{align-items: flex-end; display:flex;}
 
   .insta-section .insta-info{display:flex; flex-direction: column; align-items: center; justify-content: center; text-align:center; row-gap:var(--el-normal);}
-  .insta-section .insta-info h4{font-size:var(--fs-title); font-weight:var(--fw-400);}
+  .insta-section .insta-info h4{_font-size:var(--fs-title); font-weight:var(--fw-400); font-size:3rem;}
   .insta-section .insta-id{font-size:var(--fs-small-text); display:flex; align-items: center; column-gap: var(--el-small);}
   .insta-section .insta-id i{font-size:var(--fs-20);}

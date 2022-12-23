@@ -13,7 +13,8 @@ submitBtn.addEventListener("click", () => {
       return res.json();
     })
     .then((data) => {
-      console.log(data);
+      alert(data.msg);
+      location.reload();
     })
     .catch((err) => {
       console.log(err);
