@@ -15,21 +15,25 @@ const productsBox = document.querySelector(".products");
 
 const getData = async () => {
   // /main_poject/data/products.json
-  await fetch("/main_backend/model/requestProduct.php")
-    .then((response) => response.json())
+  await fetch("/main_backend/model/get_products.php")
+    .then((response) => {
+      // console.log(response);
+      return response.json();
+    })
     .then((data) => {
       let dataEl;
+      // console.log(data);
       data.map((item) => {
         // console.log(item);
         dataEl = `
             <div class="product-frame">
               <div class="product-item">
-                  <img src="/main_poject/${item.prodPath}" alt="">
+                  <img src="/main_poject/images/products/${item.pro_img}" alt="">
                   <div class="product-text">
-                      <h4>${item.prodTit}</h4>
-                      <strong>${item.prodPri}</strong>
-                      <p>${item.prodDes}</p>
-                      <a href="#" class="common-btn">자세히 보기</a>
+                      <h4>${item.pro_name}</h4>
+                      <strong>${item.pro_price}</strong>
+                      <p>${item.pro_desc}</p>
+                      <a href="/main_poject/pages/details.html?idx=${item.pro_idx}" class="common-btn">자세히 보기</a>
                   </div>
               </div>
             </div>
