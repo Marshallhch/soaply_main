@@ -23,7 +23,14 @@ $(function () {
       // console.log(item);
 
       const galleryItems = `
-            <div class="grid-item"><img src="/main_poject/images/${item.datamain}" alt=""></div>
+            <div class="grid-item">
+              <a href="/main_poject/pages/details.html?idx=${item.pro_idx}">
+                <img src="/main_poject/images/products/${item.pro_img}" alt="">
+                <span class="overlay">
+                  <em class="common-btn">제품보기</em>
+                </span>
+              </a>
+            </div>
         `;
       items.push($(galleryItems).get(0));
       // $(".grid").append($(galleryItems).get(0));
@@ -39,7 +46,7 @@ $(function () {
     });
   };
 
-  $.getJSON("/main_poject/data/gallery.json", getGalleryData);
+  $.getJSON("/main_backend/model/get_products.php?qnt=9", getGalleryData);
 
   // Navigation Moving to Target Section
   $(".nav-lists li").on("click", function () {

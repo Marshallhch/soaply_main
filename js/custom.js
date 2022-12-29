@@ -3,7 +3,7 @@ const productsBox = document.querySelector(".products");
 
 const getData = async () => {
   // /main_poject/data/products.json
-  await fetch("/main_backend/model/get_products.php?limit=all")
+  await fetch("/main_backend/model/get_products.php?qnt=6")
     .then((response) => {
       // console.log(response);
       return response.json();
