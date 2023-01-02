@@ -1,0 +1,10 @@
+- back-end and front-end restAPI Data Request and Response
+
+1. 회원가입 //
+2. 로그인, 로그아웃 //
+3. 상품입력 관리자 //
+4. 회원정보 관리자
+5. 상품평 입력 및 수정
+7. 장바구니 기능 
+8. 상품 더보기 기능 //
+9. 상세페이지 //
