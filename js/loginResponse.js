@@ -3,7 +3,7 @@
     const userIcon = document.querySelectorAll(".user");
     // console.log(userIcon); // 2개 배열 요소
     const adminIcon = document.querySelectorAll(".admin");
-    const cart = document.querySelector(".cart");
+    const cart = document.querySelectorAll(".cart");
 
     this.fetch("/main_backend/etc/check_sign.php")
       .then((res) => {
@@ -11,9 +11,11 @@
       })
       .then((data) => {
         console.log(data.userid, data.user_idx, data.cart_count);
-        cart.innerHTML = `
-          <a href="/main_poject/pages/cart.html"><i class="ri-shopping-cart-line"></i><em>(${data.cart_count})</em></a>
-        `;
+
+        const cartItemEl = `
+                <a href="/main_poject/pages/cart.html"><i class="ri-shopping-cart-line"></i><em>(${data.cart_count})</em></a>
+              `;
+
         if (data.userid === "guest") {
           adminIcon.forEach((item) => {
             item.style.display = "none";
@@ -23,6 +25,10 @@
             item.innerHTML = `<a href="/main_poject/pages/sign-in.html"><i class="ri-user-3-fill"></i></a>`;
           });
           // userIcon.innerHTML = `<a href="/main_poject/pages/sign-in.html"><i class="ri-user-3-fill"></i></a>`;
+
+          cart.forEach((item) => {
+            item.innerHTML = cartItemEl;
+          });
         } else {
           adminIcon.forEach((item) => {
             item.style.display = "flex";
@@ -32,6 +38,9 @@
             item.innerHTML = `<button class="signout">${data.userid} | <a href="#"> Logout</a></button>`;
           });
           // userIcon.innerHTML = `<button class="signout">${data.userid} | <a href="#"> Logout</a></button>`;
+          cart.forEach((item) => {
+            item.innerHTML = cartItemEl;
+          });
         }
 
         const signoutBtn = document.querySelector(".signout a");
