@@ -14,22 +14,14 @@ window.addEventListener("load", function () {
   // 4. 주의할 점은 각 링크가 두 개씩 존재한다는 것.
 
   const pgadr = window.location.href;
-  const link = document.querySelectorAll(".home-link, .shop-link, .gal-link");
-  // const shopLink = document.querySelectorAll(".shop-link");
-  // const galLink = document.querySelectorAll(".gal-link");
-  // console.log(pgadr.includes("index"));
+  const links = document.querySelectorAll(".home-link, .shop-link, .gal-link");
+
   if (pgadr.includes("index")) {
-    link.forEach((item) => {
+    links.forEach((item) => {
       item.setAttribute("href", "#");
     });
-    // shopLink.forEach((item) => {
-    //   item.setAttribute("href", "#");
-    // });
-    // galLink.forEach((item) => {
-    //   item.setAttribute("href", "#");
-    // });
   } else {
-    link.forEach((item) => {
+    links.forEach((item) => {
       const itemCls = item.getAttribute("class");
       if (itemCls === "home-link") {
         item.setAttribute("href", "/main_poject/index.html");
