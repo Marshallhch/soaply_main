@@ -2,7 +2,7 @@ const getCartLists = async () => {
   await fetch("/main_backend/model/cart_ctrl.php?req_cart=get_cart")
     .then((res) => res.json())
     .then((cartData) => {
-      console.log(cartData);
+      console.log(cartData.length);
       const cartWrapper = document.querySelector(".cart-lists-wrapper");
 
       if (cartData.length === 0) {
