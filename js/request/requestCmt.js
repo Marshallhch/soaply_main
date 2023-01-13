@@ -29,6 +29,7 @@ cmtBtn.addEventListener("click", () => {
       return res.json();
     })
     .then((resData) => {
+      // console.log(resData);
       alert(resData.msg);
       location.reload();
     })
@@ -60,7 +61,14 @@ const getCmtLists = async () => {
           listsElmt = `<div class="comment-lists">
               <div class="list-info">
                 <p>${list.user_id} | </p>
-                <em>${list.cmt_reg}</em>
+                <em>${list.cmt_reg} | </em>
+                <div class="star-lists">
+                  <i class="ri-star-line"></i>
+                  <i class="ri-star-line"></i>
+                  <i class="ri-star-line"></i>
+                  <i class="ri-star-line"></i>
+                  <i class="ri-star-line"></i>
+                </div>
               </div>
               <div class="list-content" id="list-${idx}">
                 <p>${list.cmt_cont}</p>
@@ -73,7 +81,14 @@ const getCmtLists = async () => {
               <div class="list-info">
                 <p>${list.user_id} | </p>
                 <em>${list.cmt_reg} | </em>
-                <button type="button" class="cmt-update">수정하기</button>
+                <button type="button" class="cmt-update">수정하기</button> |
+                <div class="star-lists">
+                  <i class="ri-star-line"></i>
+                  <i class="ri-star-line"></i>
+                  <i class="ri-star-line"></i>
+                  <i class="ri-star-line"></i>
+                  <i class="ri-star-line"></i>
+                </div>
               </div>
               <div class="list-content" id="list-${idx}">
                 <p>${list.cmt_cont}</p>
@@ -84,7 +99,14 @@ const getCmtLists = async () => {
             listsElmt = `<div class="comment-lists">
               <div class="list-info">
                 <p>${list.user_id} | </p>
-                <em>${list.cmt_reg}</em>
+                <em>${list.cmt_reg} | </em>
+                <div class="star-lists">
+                  <i class="ri-star-line"></i>
+                  <i class="ri-star-line"></i>
+                  <i class="ri-star-line"></i>
+                  <i class="ri-star-line"></i>
+                  <i class="ri-star-line"></i>
+                </div>
               </div>
               <div class="list-content" id="list-${idx}">
                 <p>${list.cmt_cont}</p>
@@ -97,11 +119,25 @@ const getCmtLists = async () => {
 
       // 수정하기 기능 분리 선언
       updateCmt(lists);
+      getRating(lists);
     })
     .catch((err) => console.log(err));
 };
 
 getCmtLists();
+
+function getRating(data) {
+  const cmtLists = document.querySelectorAll(".comment-lists");
+  let starNumber = [];
+  console.log(data);
+  data.forEach((starNo, i) => {
+    console.log(starNo.rating);
+    starNumber.push(starNo.rating);
+  });
+  cmtLists.forEach((el, i) => {
+    el.textContent = starNumber[i];
+  });
+}
 
 // 수정하기 기능 함수 선언
 function updateCmt(cmtObjs) {

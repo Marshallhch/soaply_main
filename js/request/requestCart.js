@@ -2,10 +2,10 @@ const getCartLists = async () => {
   await fetch("/main_backend/model/cart_ctrl.php?req_cart=get_cart")
     .then((res) => res.json())
     .then((cartData) => {
-      console.log(cartData.length);
+      console.log(cartData);
       const cartWrapper = document.querySelector(".cart-lists-wrapper");
 
-      if (cartData.length === 0) {
+      if (!cartData || cartData.length === 0) {
         cartWrapper.innerHTML = `<p class="no-cart">카트에 상품이 없습니다.</p>`;
         return;
       }
