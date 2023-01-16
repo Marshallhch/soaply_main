@@ -1,16 +1,35 @@
 const cmtInputBox = document.querySelector("textarea");
 const cmtBtn = document.querySelector("button[type=submit]");
+const isCheck = document.getElementsByName("cmt_star");
 const url = document.location.href;
 const urlIndex = Number(url.split("=")[1]);
+// console.log(isCheck);
 // console.log(urlIndex);
 
 // 상품평 작성
 cmtBtn.addEventListener("click", () => {
+  let selected = false;
   // 입력창 작성 체크
   if (!cmtInputBox.value) {
     alert("내용을 입력해 주세요.");
     cmtInputBox.focus();
     return;
+  }
+
+  // 별점 작성 체크
+  for (let radio of isCheck) {
+    if (radio.checked) {
+      selected = true;
+    }
+  }
+
+  if (!selected) {
+    const isInput = confirm(
+      "별점 평가가 없으면 한개가 입력됩니다. \n입력하시겠습니까?"
+    );
+    if (!isInput) {
+      return;
+    }
   }
 
   // 입력창 작성 체크 끝 : 위 부분이 완료 되면 다음 코드로 진행
@@ -62,13 +81,7 @@ const getCmtLists = async () => {
               <div class="list-info">
                 <p>${list.user_id} | </p>
                 <em>${list.cmt_reg} | </em>
-                <div class="star-lists">
-                  <i class="ri-star-line"></i>
-                  <i class="ri-star-line"></i>
-                  <i class="ri-star-line"></i>
-                  <i class="ri-star-line"></i>
-                  <i class="ri-star-line"></i>
-                </div>
+                <div class="star-lists"></div>
               </div>
               <div class="list-content" id="list-${idx}">
                 <p>${list.cmt_cont}</p>
@@ -82,13 +95,7 @@ const getCmtLists = async () => {
                 <p>${list.user_id} | </p>
                 <em>${list.cmt_reg} | </em>
                 <button type="button" class="cmt-update">수정하기</button> |
-                <div class="star-lists">
-                  <i class="ri-star-line"></i>
-                  <i class="ri-star-line"></i>
-                  <i class="ri-star-line"></i>
-                  <i class="ri-star-line"></i>
-                  <i class="ri-star-line"></i>
-                </div>
+                <div class="star-lists"></div>
               </div>
               <div class="list-content" id="list-${idx}">
                 <p>${list.cmt_cont}</p>
@@ -100,13 +107,7 @@ const getCmtLists = async () => {
               <div class="list-info">
                 <p>${list.user_id} | </p>
                 <em>${list.cmt_reg} | </em>
-                <div class="star-lists">
-                  <i class="ri-star-line"></i>
-                  <i class="ri-star-line"></i>
-                  <i class="ri-star-line"></i>
-                  <i class="ri-star-line"></i>
-                  <i class="ri-star-line"></i>
-                </div>
+                <div class="star-lists"></div>
               </div>
               <div class="list-content" id="list-${idx}">
                 <p>${list.cmt_cont}</p>
@@ -117,25 +118,37 @@ const getCmtLists = async () => {
         cmtWrapper.innerHTML += listsElmt;
       });
 
-      // 수정하기 기능 분리 선언
-      updateCmt(lists);
-      getRating(lists);
+      updateCmt(lists); // 수정하기 기능 분리 호출
+      getRating(lists); // 별점 출력 함수 호출
     })
     .catch((err) => console.log(err));
 };
 
 getCmtLists();
 
-function getRating(data) {
-  const cmtLists = document.querySelectorAll(".comment-lists");
-  let starNumber = [];
-  console.log(data);
-  data.forEach((starNo, i) => {
-    console.log(starNo.rating);
-    starNumber.push(starNo.rating);
+// 별점 출력 함수 선언
+function getRating(star) {
+  // console.log(star);
+  let starArr = [];
+  const starLists = document.querySelectorAll(".star-lists");
+  // console.log(star.rating); // 여러개 제이슨 요소이기 때문에 읽히지 않음 : undefined
+  star.forEach((num) => {
+    // console.log(num.rating);
+    starArr.push(num.rating);
   });
-  cmtLists.forEach((el, i) => {
-    el.textContent = starNumber[i];
+
+  // console.log(starArr);
+
+  starLists.forEach((elm, i) => {
+    // console.log(starArr[i]);
+    const negativeNo = 5 - starArr[i];
+    for (let j = 0; j < starArr[i]; j++) {
+      elm.innerHTML += '<i class="ri-star-fill"></i>';
+    }
+
+    for (let k = 0; k < negativeNo; k++) {
+      elm.innerHTML += '<i class="ri-star-line"></i>';
+    }
   });
 }
 
