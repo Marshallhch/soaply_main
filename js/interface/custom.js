@@ -13,7 +13,7 @@ window.addEventListener("load", function () {
     reset: false,
   });
 
-  sr.reveal(".wrapper", { duration: 1000 });
+  // sr.reveal(".wrapper", { duration: 1000 });
   sr.reveal(".landing-text-box", {
     duration: 1000,
     origin: "right",
