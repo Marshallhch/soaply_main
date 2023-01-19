@@ -25,7 +25,7 @@
   <body>
     <div class="wrapper">
       <!-- Header Include -->
-      <div class="header-wrapper" w3-include-html="/main_poject/include/header.html"></div>
+      <div id="header-wrapper" class="header-wrapper" role="header"></div>
 
       <section id="main-section" class="section landing-section nav-target">
         <img src="/main_poject/images/landing-image.jpeg" alt="" />
@@ -206,7 +206,7 @@
       <section class="gallery-section section nav-target">
         <div class="container">
           <div class="title-box">
-            <h2 class="section-title">The Gallery From Clents</h2>
+            <h2 class="section-title">The Gallery</h2>
             <a href="/main_poject/pages/gallery.html" class="common-btn">전체 보기</a>
           </div>
           <div class="gallery-wrapper">
@@ -252,12 +252,8 @@
       </section>
 
       <!-- Footer Include -->
-      <div class="header-wrapper" w3-include-html="/main_poject/include/footer.html"></div>
+      <div role="footer" id="footer"></div>
     </div>
-
-    <!-- Include Files -->
-    <script src="https://www.w3schools.com/lib/w3.js"></script>
-    <script src="/main_poject/js/interface/include.js"></script>
 
     <!-- Scroll Reveal Plugin -->
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -266,6 +262,9 @@
 
     <!-- jQuery Framework  -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" ntegrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <!-- Include Files -->
+    <script src="/main_poject/js/interface/include.js"></script>
 
     <!-- masonry and imagesLoaded plugins  -->
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
