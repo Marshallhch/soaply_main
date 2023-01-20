@@ -1,6 +1,5 @@
-// window.addEventListener("load", function () {
-/********** Header Change Effect **********/
 $(document).ajaxComplete(function () {
+  /********** Header Change Effect **********/
   const header = document.querySelector("#header");
   const stickyHeader = () => {
     const scry = window.scrollY;
@@ -9,4 +8,3 @@ $(document).ajaxComplete(function () {
   };
   window.addEventListener("scroll", stickyHeader);
 });
-// });

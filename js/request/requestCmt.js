@@ -3,8 +3,6 @@ const cmtBtn = document.querySelector("button[type=submit]");
 const isCheck = document.getElementsByName("cmt_star");
 const url = document.location.href;
 const urlIndex = Number(url.split("=")[1]);
-// console.log(isCheck);
-// console.log(urlIndex);
 
 // 상품평 작성
 cmtBtn.addEventListener("click", () => {
@@ -43,12 +41,9 @@ cmtBtn.addEventListener("click", () => {
     }
   )
     .then((res) => {
-      // console.log(res);
-      // status = res.status;
       return res.json();
     })
     .then((resData) => {
-      // console.log(resData);
       alert(resData.msg);
       location.reload();
     })
@@ -67,7 +62,6 @@ const getCmtLists = async () => {
   )
     .then((res) => res.json())
     .then((lists) => {
-      console.log(lists);
       if (lists.msg) {
         cmtWrapper.innerHTML = `<p class="no-list">${lists.msg}</p>`;
         return;
@@ -82,7 +76,6 @@ const getCmtLists = async () => {
 
       starVal.textContent = floatAvg; // 평균값 표시
       riFill.style.width = (floatAvg / 5) * 100 + "%";
-      // console.log(floatAvg);
 
       let listsElmt;
       lists.map((list, idx) => {
@@ -138,19 +131,14 @@ getCmtLists();
 
 // 별점 출력 함수 선언
 function getRating(star) {
-  // console.log(star);
   let starArr = [];
   const starLists = document.querySelectorAll(".star-lists");
   // console.log(star.rating); // 여러개 제이슨 요소이기 때문에 읽히지 않음 : undefined
   star.forEach((num) => {
-    // console.log(num.rating);
     starArr.push(num.rating);
   });
 
-  // console.log(starArr);
-
   starLists.forEach((elm, i) => {
-    // console.log(starArr[i]);
     const negativeNo = 5 - starArr[i];
     for (let j = 0; j < starArr[i]; j++) {
       elm.innerHTML += '<i class="ri-star-fill"></i>';
@@ -169,10 +157,7 @@ function updateCmt(cmtObjs) {
   if (cmtObjs.length !== 0 && cmtUpBtns) {
     cmtUpBtns.forEach((btn) => {
       btn.addEventListener("click", function () {
-        // console.log(btn);
-
         const itemClass = this.className;
-        // console.log(itemClass);
 
         cmtUpBtns.forEach((aBtn) => {
           aBtn.classList.remove("active");
@@ -228,14 +213,10 @@ function updateCmt(cmtObjs) {
             const upRadioNum = document.querySelector(
               `.update-form-${thisIdx} input[type="radio"].val-${cmtObjs[thisIdx].rating}`
             );
-            // console.log(upRadioNum);
-            // console.log(cmtObjs);
             upRadioNum.checked = true;
-
             const udSubmitBtn = document.querySelector(
               `.update-form-${thisIdx} button`
             );
-
             udSubmitBtn.addEventListener("click", function () {
               const formData = new FormData(
                 document.querySelector(`.update-form-${thisIdx}`)
@@ -249,14 +230,11 @@ function updateCmt(cmtObjs) {
                 }
               )
                 .then((res) => {
-                  // console.log(res);
-                  // status = res.status;
                   return res.json();
                 })
                 .then((resData) => {
                   alert(resData.msg);
                   location.reload();
-                  // console.log(resData);
                 })
                 .catch((err) => {
                   console.log(err);

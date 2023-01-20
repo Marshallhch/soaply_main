@@ -2,7 +2,6 @@ const getCartLists = async () => {
   await fetch("/main_backend/model/cart_ctrl.php?req_cart=get_cart")
     .then((res) => res.json())
     .then((cartData) => {
-      console.log(cartData);
       const cartWrapper = document.querySelector(".cart-lists-wrapper");
 
       if (!cartData || cartData.length === 0) {
@@ -11,7 +10,6 @@ const getCartLists = async () => {
       }
 
       cartData.map((list) => {
-        console.log(list);
         cartListEl = `
           <div class="cart-list">
             <div class="cart-frame">
@@ -52,7 +50,6 @@ const getCartLists = async () => {
           )
             .then((res) => res.json())
             .then((del) => {
-              // console.log(del);
               alert(del.msg);
               location.reload();
             })

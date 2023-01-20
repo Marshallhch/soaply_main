@@ -2,11 +2,6 @@ window.addEventListener("load", function () {
   /********** Elements Clone For Mobile **********/
   this.setTimeout(function () {
     const mobileMenus = document.querySelector(".mobile-menus");
-    // const navs = document.querySelector(".nav-lists").cloneNode(true);
-    // const info = document.querySelector(".info").cloneNode(true);
-
-    // mobileMenus.appendChild(navs);
-    // mobileMenus.appendChild(info);
 
     /********** Change Menu Link Between Main and Sub Pages **********/
     // 1. 웹주소에서 index 포함 여부를 파악한다.
@@ -42,7 +37,6 @@ window.addEventListener("load", function () {
       const target = e.currentTarget;
       const menuHeight = mobileMenus.scrollHeight; // scrollHeight : 지정 대상의 높이값을 읽어준다.
       target.classList.toggle("active");
-      // console.log(menuHeight);
 
       if (target.classList.contains("active")) {
         target.classList.remove("not-active");

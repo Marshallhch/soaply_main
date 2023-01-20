@@ -24,7 +24,6 @@ signin.addEventListener("click", () => {
       return res.json();
     })
     .then((data) => {
-      console.log(data);
       location.href = "/main_poject/index.html";
     })
     .catch((err) => {

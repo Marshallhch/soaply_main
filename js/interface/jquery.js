@@ -1,7 +1,3 @@
-// $(document).ready(function () {
-//   // do something...
-// }); // not recommended...
-
 $(function () {
   // Navigation Moving to Target Section
   $(document).ajaxComplete(function () {
@@ -11,7 +7,7 @@ $(function () {
       const targetIdx = $(this).index();
       const pagePosition = $(".nav-target").eq(targetIdx).offset().top;
 
-      $("html, body").animate({ scrollTop: pagePosition - 50 }, 100);
+      $("html, body").animate({ scrollTop: pagePosition - 30 }, 100);
     });
   });
-}); // recommended...
+});
