@@ -22,11 +22,11 @@ window.addEventListener("load", function () {
       links.forEach((item) => {
         const itemCls = item.getAttribute("class");
         if (itemCls === "home-link") {
-          item.setAttribute("href", "/main_poject/index.html");
+          item.setAttribute("href", "/soaply/index.html");
         } else if (itemCls === "shop-link") {
-          item.setAttribute("href", "/main_poject/pages/shop.html");
+          item.setAttribute("href", "/soaply/pages/shop.html");
         } else {
-          item.setAttribute("href", "/main_poject/pages/gallery.html");
+          item.setAttribute("href", "/soaply/pages/gallery.html");
         }
       });
     }

@@ -1,5 +1,5 @@
 const getCartLists = async () => {
-  await fetch("/main_backend/model/cart_ctrl.php?req_cart=get_cart")
+  await fetch("/soaply_backend/model/cart_ctrl.php?req_cart=get_cart")
     .then((res) => res.json())
     .then((cartData) => {
       const cartWrapper = document.querySelector(".cart-lists-wrapper");
@@ -14,7 +14,7 @@ const getCartLists = async () => {
           <div class="cart-list">
             <div class="cart-frame">
               <div class="cart-image">
-                <img src="/main_poject/images/products/${list.cart_img}" alt="">
+                <img src="/soaply/images/products/${list.cart_img}" alt="">
               </div>
             </div>
 
@@ -29,7 +29,7 @@ const getCartLists = async () => {
                 <button class='up'>+</button>
               </div>
               <div class="sum">
-                합계 : <em>${list.cart_price}</em>원
+                합계 : <em>${list.cart_sum}</em>원
               </div>
             </div>
             <div class="cart-btns">
@@ -46,7 +46,7 @@ const getCartLists = async () => {
         btn.addEventListener("click", function () {
           const cartIdx = Number(this.getAttribute("id").split("-")[1]);
           fetch(
-            `/main_backend/model/cart_ctrl.php?req_cart=del_cart&cart_idx=${cartIdx}`
+            `/soaply_backend/model/cart_ctrl.php?req_cart=del_cart&cart_idx=${cartIdx}`
           )
             .then((res) => res.json())
             .then((del) => {

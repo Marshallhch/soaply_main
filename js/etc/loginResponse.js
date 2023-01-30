@@ -4,13 +4,13 @@ window.addEventListener("load", function () {
     const adminIcon = document.querySelectorAll(".admin");
     const cart = document.querySelectorAll(".cart");
 
-    this.fetch("/main_backend/etc/check_sign.php")
+    this.fetch("/soaply_backend/etc/check_sign.php")
       .then((res) => {
         return res.json();
       })
       .then((data) => {
         const cartItemEl = `
-                <a href="/main_poject/pages/cart.html"><i class="ri-shopping-cart-line"></i><em>(${data.cart_count})</em></a>
+                <a href="/soaply/pages/cart.html"><i class="ri-shopping-cart-line"></i><em>(${data.cart_count})</em></a>
               `;
 
         if (data.userid === "guest") {
@@ -20,7 +20,7 @@ window.addEventListener("load", function () {
           }); // 어드민 가려줌
 
           userIcon.forEach((item) => {
-            item.innerHTML = `<a href="/main_poject/pages/sign-in.html"><i class="ri-user-3-fill"></i></a>`;
+            item.innerHTML = `<a href="/soaply/pages/sign-in.html"><i class="ri-user-3-fill"></i></a>`;
           }); // 사용자 정보 없는 아이콘
 
           cart.forEach((item) => {
@@ -57,7 +57,7 @@ window.addEventListener("load", function () {
           signoutBtn.forEach((btn) => {
             btn.addEventListener("click", (e) => {
               e.preventDefault();
-              this.fetch("/main_backend/model/register.php?q=signout")
+              this.fetch("/soaply_backend/model/register.php?q=signout")
                 .then((res) => res.json())
                 .then((data) => {
                   console.log(data);

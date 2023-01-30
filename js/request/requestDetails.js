@@ -7,16 +7,50 @@ window.addEventListener("load", function () {
 
   // 3. 장바구니 데이터 세션 작성 요청 함수
   const requestCart = () => {
+    // 수량 증가 및 합산 가격 출력
+    // 1. DOM 객체 선택
+    const countBtn = document.querySelectorAll(".qnts button"); // +, - 버튼
+    const countEl = document.querySelector(".count"); // 카운팅 숫자 요소
+    const sumEl = document.querySelector(".sum em"); // 가격 합산 요소
+
+    // 2.
+    const cartCountEl = document.querySelector(".cart-count");
+    const cartSumEl = this.document.querySelector(".cart-sum");
+
+    let count = Number(countEl.textContent); // 카운팅 숫자
+    let sumPrice = Number(sumEl.textContent.replace(",", "")); // 합산 가격
+
+    countBtn.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        if (this.classList.contains("up")) {
+          count++;
+        } else {
+          // 삼항 연산자 : 조건 ? 조건이 참일때 : 조건이 거짓일때
+          count <= 1 ? (count = 1) : count--;
+        }
+        countEl.textContent = cartCountEl.value = count;
+        sumEl.textContent = cartSumEl.value = (count * sumPrice)
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      });
+    });
+
     const adtc = document.querySelector(".add-to-cart"); // 장바구니 버튼
     const formData = new FormData(document.querySelector(".cart-form")); // 장바구니 전달 데이터 폼
 
     adtc.addEventListener("click", async () => {
-      await this.fetch("/main_backend/model/cart_ctrl.php?req_cart=add_cart", {
-        method: "POST",
-        body: formData,
-      })
+      formData.set("cart_count", `${count}`);
+      formData.set("cart_sum", `${count * sumPrice}`);
+      await this.fetch(
+        "/soaply_backend/model/cart_ctrl.php?req_cart=add_cart",
+        {
+          method: "POST",
+          body: formData,
+        }
+      )
         .then((response) => response.json())
         .then((cart) => {
+          // console.log(cart);
           this.alert(cart.msg);
           this.location.reload();
         })
@@ -25,7 +59,7 @@ window.addEventListener("load", function () {
   };
 
   const getDetailData = async () => {
-    await fetch(`/main_backend/model/get_details.php?idx=${urlIndex}`)
+    await fetch(`/soaply_backend/model/get_details.php?idx=${urlIndex}`)
       .then((response) => {
         return response.json();
       })
@@ -33,7 +67,7 @@ window.addEventListener("load", function () {
         let imageEl;
         let textEl;
         imageEl = `
-          <img src="/main_poject/images/products/${data.pro_img}" alt="">
+          <img src="/soaply/images/products/${data.pro_img}" alt="">
         `;
 
         textEl = `
@@ -48,7 +82,7 @@ window.addEventListener("load", function () {
               <p>배송비 :</p>
             </div>
             <div class="price-value">
-    <script src="/main_poject/js/header.js"></script>
+    <script src="/soaply/js/header.js"></script>
               <p>${data.pro_price
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
@@ -94,33 +128,6 @@ window.addEventListener("load", function () {
         detailImage.innerHTML = imageEl;
         detailText.innerHTML = textEl;
 
-        // 수량 증가 및 합산 가격 출력
-        // 1. DOM 객체 선택
-        const countBtn = document.querySelectorAll(".qnts button"); // +, - 버튼
-        const countEl = document.querySelector(".count"); // 카운팅 숫자 요소
-        const sumEl = document.querySelector(".sum em"); // 가격 합산 요소
-
-        // 2.
-        const cartCountEl = document.querySelector(".cart-count");
-        const cartSumEl = this.document.querySelector(".cart-sum");
-
-        let count = Number(countEl.textContent); // 카운팅 숫자
-        let sumPrice = Number(sumEl.textContent.replace(",", "")); // 합산 가격
-
-        countBtn.forEach((btn) => {
-          btn.addEventListener("click", function () {
-            if (this.classList.contains("up")) {
-              count++;
-            } else {
-              // 삼항 연산자 : 조건 ? 조건이 참일때 : 조건이 거짓일때
-              count <= 1 ? (count = 1) : count--;
-            }
-            countEl.textContent = cartCountEl.value = count;
-            sumEl.textContent = cartSumEl.value = (count * sumPrice)
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-          });
-        });
         requestCart(); // 3.
       })
       .catch((err) => console.log(err));
